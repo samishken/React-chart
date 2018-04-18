@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Chart from './components/Chart'
+import Chart from './components/Chart';
 
 class App extends Component {
   constructor(){
-    super()
+    super();
     this.state = {
-      chartData: {}
+      chartData:{}
     }
   }
 
-  componentWillMount() {
+  componentWillMount(){
     this.getChartData();
   }
 
-
-  getChartData() {
-    //Ajax calls here
+  getChartData(){
+    // Ajax calls here
     this.setState({
-      chartData: {
+      chartData:{
         labels: ['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
         datasets:[
           {
@@ -44,18 +43,18 @@ class App extends Component {
           }
         ]
       }
-    })
+    });
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
-        </header>
-        <Chart chartData={this.state.chartData} loaction="Massachusetts" legendPosition="top"/>
-        <Chart chartData={this.state.chartData} loaction="New York" legendPosition="bottom"/>
+        </div>
+        <Chart chartData={this.state.chartData} location="Massachusetts" legendPosition="bottom"/>
+        <Chart chartData={this.state.chartData} location="New York" legendPosition="top"/>
       </div>
     );
   }
